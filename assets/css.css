@@ -1,0 +1,117 @@
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    margin: 0;
+
+    overflow: hidden;
+}
+
+header
+{
+    height: 12rem;
+    width: 100%;
+    max-height: 12rem;
+
+    padding: 0 6rem;
+
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+}
+
+main
+{
+    height: 100vh;
+    width: 100vw;
+    /*scroll-snap-type: y mandatory;*/
+}
+
+section
+{
+    height: 100%;
+    width: 100%;
+
+    padding-bottom: 4.25rem;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.quicksand-logo 
+{
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+
+    font-size: 40px;
+    color: #F2F0E9;
+}
+
+.quicksand-h1
+{
+    font-family: "Quicksand", sans-serif;
+    font-style: normal;
+
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.05rem;
+
+    margin: 0;
+
+    color: #F2F0E9;
+}
+
+.quicksand-p
+{
+    font-family: "Quicksand", sans-serif;
+    font-style: normal;
+
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.5;
+
+    color: #F2F0E9
+}
+
+.one
+{
+    height: 70vh;
+
+    background: linear-gradient(to right,#0D0D0D 67%, #73726E 33%);
+}
+
+.two
+{
+    background-color: #F2F0E9;
+}
+
+.container
+{
+    width: 100%;
+
+    margin-top: 13rem;
+    padding: 0 11rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.square
+{
+    width: 23.5rem;
+    height: 24.5rem;
+
+    margin-right: 10rem;
+
+    background-color: blue;
+}
