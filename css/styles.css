@@ -112,21 +112,22 @@ a
     justify-content: space-between;
 }
 
-
 .logo
 {
     font-size: 2.5rem;
     font-weight: 700;
 
-    color: #F2F0E9;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 
-    /* ESTUDOS FUTUROS
-    mix-blend-mode: difference;
-    filter: invert(1);
-    */
+    color: #F2F0E9;
 }
 
-.logo-black
+.logo:hover
+{
+    transform: scale(1.2);
+}
+
+.logo-invert
 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -134,12 +135,10 @@ a
     color: #0D0D0D;
 }
 
-.cv
+.cv /* botão curriculo */
 {
-    /* NÃO SEI PORQUE TEM ISSO (AINDA) */
-    position: relative;
-    display: inline-block;
-    /* FIM */
+    position: relative; /* torna o objetivo como referência para elementos filhos (no caso o ::before ) */
+    display: inline-block; /* faz com que o elementos seja um bloco mas ele tenta se encaixar na mesma linha se houver espaço antes de ir pra proxima */
 
     border: solid 1px #0D0D0D;
     padding: 1rem 2.5rem;
@@ -151,37 +150,67 @@ a
 
     color: #0D0D0D;
 
-    /* NÃO SEI PORQUE TEM ISSO (AINDA) */
-    overflow: hidden;
-    /* FIM */
+    overflow: hidden; /* faz com que as partes que vazarem do tamanho do elemento não são mostradas */
 
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* NÃO SEI FAZER ISSO AQUI (AINDA) */
-.cv::before 
+.cv-invert
+{
+    border-color: #F2F0E9;
+    color: #F2F0E9;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cv::before
 {
     content: '';
+
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    z-index: -1;
+
     height: 100%;
-    background-color: #0D0D0D;
+    width: 100%;
+
     transform: translateX(-100%);
     transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: -1;
+
+    background-color: #0D0D0D;
 }
 
-.cv:hover::before 
+.cv-invert::before
+{
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    height: 100%;
+    width: 100%;
+
+    transform: translateX(-100%);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+
+    background-color: #F2F0E9;
+}
+
+.cv:hover::before
 {
     transform: translateX(0);
 }
-/* FIM */
 
-.cv:hover 
+.cv:hover
 {
     color: #F2F0E9;
+}
+
+.cv-invert:hover
+{
+    color: #0D0D0D;
 }
 
 .primary h1

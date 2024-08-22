@@ -6,7 +6,7 @@ let currentPage = 0;
 function displayLogo()
 {
     var logo = document.getElementById('bigLogo');
-    if(currentPage != 0)
+    if(currentPage !== 0)
     {
         logo.style.display = 'none'
     }
@@ -38,21 +38,32 @@ function scrollPage(delta)
 
 function changeLogo()
 {
-    if (currentPage % 2 != 0)
+    if (currentPage % 2 === 0) // par
     {
         document.querySelectorAll('.logo').forEach(element => 
         {
-            element.classList.remove('logo')
-            element.classList.add('logo-black');
-        })
-    }
-    else if (currentPage % 2 === 0)
-    {
-        document.querySelectorAll('.logo-black').forEach(element => 
-        {
-            element.classList.remove('logo-black')
-            element.classList.add('logo');
+            element.classList.remove('logo-invert');
         });
+    }
+    else // impar
+    {
+        document.querySelectorAll('.logo').forEach(element => 
+        {
+            element.classList.add('logo-invert')
+        });
+    }
+}
+
+function changeCv()
+{
+    const cvButton = document.querySelector('.cv');
+    if (currentPage % 2 === 0 && currentPage !== 0)
+    {
+        cvButton.classList.add('cv-invert');
+    }
+    else
+    {
+        cvButton.classList.remove('cv-invert');
     }
 }
 
@@ -61,14 +72,23 @@ window.addEventListener('wheel', function(event)
     if (event.deltaY > 0)
     {
         scrollPage(1);
-        changeLogo();
+        scrollSleep = this.setTimeout(function()
+        {
+            changeLogo();
+            changeCv();
+            displayLogo();
+        }, 450); // valor em ms
     }
     else
     {
         scrollPage(-1);
-        changeLogo();
-    }
-    displayLogo()
+        scrollSleep = this.setTimeout(function()
+        {
+            changeLogo();
+            changeCv();
+            displayLogo();
+        }, 35); // valor em ms
+    }   
 },
 {
     passive: false
@@ -77,6 +97,7 @@ window.addEventListener('wheel', function(event)
 window.onload = function() 
 {
     var scrollPosition = 0;
+    currentPage = 0;
 
     window.scrollTo(
     {

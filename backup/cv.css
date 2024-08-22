@@ -1,0 +1,46 @@
+.cv-invert 
+{
+    color: #F2F0E9;
+    border-color: #F2F0E9;
+}
+
+.cv::before 
+{
+    content: '';
+    position: absolute; /* permite posicionar o elemento baseado na posião do elemento pai ( no caso o cv normal ) */
+    top: 0; /* a alinha o elemento o elemento com o topo do cv */
+    left: 0; /* alinha o elemento com a esquerda do cv */
+    width: 100%; /* copia o w do cv */
+    height: 100%; /* copia o h do cv */
+    background-color: #0D0D0D;
+    transform: translateX(-100%); /* move o elemento filho ( que estava em cima do cv ) para a esquerda ( completamente fora de cima do cv ) */
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: -1; /* empurra pra trás do cv */
+}
+
+.cv-invert::before 
+{
+    background-color: #F2F0E9;
+}
+
+.cv:hover::before 
+{
+    transform: translateX(0); /* move o pseudo-elemento para a posição inicial */
+    /*color: #0D0D0D;*/
+}
+
+.cv-invert:hover::before
+{
+    color: #0D0D0D;
+}
+
+.cv-invert:hover 
+{
+    transform: translateX(0);
+    color: #0D0D0D;
+}
+
+.cv:hover 
+{
+    color: #F2F0E9;
+}
