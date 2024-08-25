@@ -3,7 +3,7 @@ const totalPages = pages.length;
 
 let currentPage = 0;
 
-function displayLogo()
+function displayLogo() // mostrar apenas o N.
 {
     var logo = document.getElementById('bigLogo');
     if(currentPage !== 0)
@@ -54,6 +54,32 @@ function changeLogo()
     }
 }
 
+function changeSocial()
+{
+    if (currentPage % 2 === 0) // par
+    {
+        document.querySelectorAll('.social').forEach(element => 
+        {
+            element.classList.remove('social-invert');
+        });
+        document.querySelectorAll('.icon').forEach(element => 
+        {
+            element.classList.remove('icon-invert');
+        });
+    }
+    else // impar
+    {
+        document.querySelectorAll('.social').forEach(element => 
+        {
+            element.classList.add('social-invert')
+        });
+        document.querySelectorAll('.icon').forEach(element => 
+        {
+            element.classList.add('icon-invert')
+        });
+    }
+}
+
 function changeCv()
 {
     const cvButton = document.querySelector('.cv');
@@ -76,7 +102,8 @@ window.addEventListener('wheel', function(event)
         {
             changeLogo();
             changeCv();
-            displayLogo();
+            //changeSocial(); barra social em cima
+            //displayLogo(); logo apenas N.
         }, 450); // valor em ms
     }
     else
@@ -86,9 +113,15 @@ window.addEventListener('wheel', function(event)
         {
             changeLogo();
             changeCv();
-            displayLogo();
+            //changeSocial(); barra social em cima
+            //displayLogo(); logo apenas N.
         }, 35); // valor em ms
-    }   
+    };
+    scrollSleep = this.setTimeout(function()
+    {
+        changeSocial();
+    }, 250);
+    
 },
 {
     passive: false

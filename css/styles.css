@@ -39,11 +39,6 @@ section
     justify-content: center;
 }
 
-article
-{
-    margin-top: -3.5rem;
-}
-
 a
 {
     text-decoration: none;
@@ -58,12 +53,29 @@ a
     padding-bottom: 4.25rem;
 }
 
+.one article
+{
+    margin-top: -3.5rem;
+}
+
 .two
 {
+    flex-direction: row;
+
     width: 100vw;
     height: 100vh;
 
     background-color: #F2F0E9;
+}
+
+.two .container
+{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 6rem;
+
+    max-width: 75rem;
 }
 
 .three
@@ -77,6 +89,11 @@ a
 .container
 {
     max-width: 110rem;
+
+    min-width: 12.5rem;
+
+    display: flex;
+    justify-content: space-between;
 }
 
 .primary
@@ -102,14 +119,6 @@ a
 {
     font-family: "Poppins", sans-serif;
     font-style: normal;
-}
-
-.container
-{
-    min-width: 12.5rem;
-
-    display: flex;
-    justify-content: space-between;
 }
 
 .logo
@@ -252,4 +261,56 @@ a
 {
     width: inherit;
     height: inherit;
+}
+
+.social
+{
+    position: fixed;
+
+    /* BARRA EM CIMA 
+    display: flex;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    */
+
+    /* BARRA NA ESQUERDA */
+    top: 50%;
+    transform: translate(0,-50%);
+
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    background-color: #F2F0E9;
+    /* box-shadow: 0 0 1rem 0 #403F3D; */
+}
+
+.social-invert
+{
+    background-color: #0D0D0D;
+}
+
+.social-item
+{
+    padding: 1rem;
+
+    box-sizing: content-box;
+}
+
+.icon, .icon svg /* icone */
+{
+    height: 2rem;
+    width: 2rem;
+
+    color:#0D0D0D;
+    fill: #0D0D0D;
+}
+
+.icon-invert, .icon-invert svg
+{
+    color: #F2F0E9;
+    fill: #F2F0E9;
 }
