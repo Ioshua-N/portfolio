@@ -247,6 +247,51 @@ a
     color: #F2F0E9;
 }
 
+@keyframes slide-in 
+{
+    from 
+    {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to 
+    {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-top 
+{
+    from 
+    {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to 
+    {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.title-slide 
+{
+    animation: slide-in 1s ease-out forwards;
+}
+
+.subtitle-slide
+{
+    opacity: 0;
+    animation: slide-in-top 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+.about-me
+{
+    text-align: justify;
+}
+
 .square
 {
     width: 24rem;
@@ -254,13 +299,32 @@ a
 
     margin-right: 10rem;
 
-    background-color: blue;
+    /*background-color: blue;*/
 }
 
 .square img
 {
     width: inherit;
     height: inherit;
+}
+
+@keyframes grow 
+{
+    from 
+    {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to 
+    {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.img-grow 
+{
+    animation: grow 0.8s ease-out forwards;
 }
 
 .social
